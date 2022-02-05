@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { BsSunFill } from "react-icons/bs";
+import { FaMoon } from "react-icons/fa";
 import { HiOutlineMenu } from "react-icons/hi";
 import { MdOutlineClose } from "react-icons/md";
+import useDarkMode from "../../Hooks/useDarkMode";
 
 function NavBar(props) {
   const { isMobile } = props;
+  const [isDarkMode, toggleDarkMode] = useDarkMode();
 
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -16,7 +19,21 @@ function NavBar(props) {
     <nav className="flex items-center">
       <div className="flex items-center">
         <div className="text-20 font-bold mr-2">NerdCard</div>
-        <BsSunFill size={"24px"} color="#e9c46a" className="cursor-pointer" />
+        {isDarkMode ? (
+          <BsSunFill
+            onClick={() => toggleDarkMode()}
+            size={"24px"}
+            color="#e9c46a"
+            className="cursor-pointer"
+          />
+        ) : (
+          <FaMoon
+            onClick={() => toggleDarkMode()}
+            size={"24px"}
+            color="#e9c46a"
+            className="cursor-pointer"
+          />
+        )}
       </div>
       <ul className="md:flex md:gap-10 ml-auto text-16 font-semibold">
         {openMenu && isMobile ? (
@@ -42,7 +59,7 @@ function NavBar(props) {
 
         {/* Menu */}
         {openMenu && (
-          <div className="absolute right-8 bg-white p-8 text-center text-13 text-purple-900">
+          <div className="absolute right-8 bg-white p-8 text-center text-13 text-purple-900 z-10">
             <li className="cursor-pointer">Feature</li>
             <li className="cursor-pointer">Menu</li>
             <li className="cursor-pointer">Our Story</li>

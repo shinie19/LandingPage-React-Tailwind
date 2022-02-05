@@ -9,7 +9,7 @@ function Slogan(props) {
           Earn <span className="text-purple-300">More</span>
         </p>
         <p className="">Pay Less</p>
-        <button className="text-20 px-6 py-[6px] font-bold mt-[27px] bg-purple-500 rounded-[14px] hover:bg-pink-500 transition-all duration-300 md:text-24 md:py-2">
+        <button className="text-white text-20 px-6 py-[6px] font-bold mt-[27px] bg-purple-500 rounded-[14px] hover:bg-pink-500 transition-all duration-300 md:text-24 md:py-2">
           Start
         </button>
       </div>
