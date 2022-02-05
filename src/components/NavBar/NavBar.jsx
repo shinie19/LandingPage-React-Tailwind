@@ -4,6 +4,8 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { MdOutlineClose } from "react-icons/md";
 
 function NavBar(props) {
+  const { isMobile } = props;
+
   const [openMenu, setOpenMenu] = useState(false);
 
   const handleMenu = () => {
@@ -16,19 +18,26 @@ function NavBar(props) {
         <div className="text-20 font-bold mr-2">NerdCard</div>
         <BsSunFill size={"24px"} color="#e9c46a" className="cursor-pointer" />
       </div>
-      <ul className="ml-auto text-16 font-semibold">
-        {openMenu ? (
+      <ul className="md:flex md:gap-10 ml-auto text-16 font-semibold">
+        {openMenu && isMobile ? (
           <MdOutlineClose
             size={"24px"}
             className="cursor-pointer"
             onClick={handleMenu}
           />
-        ) : (
+        ) : !openMenu && isMobile ? (
           <HiOutlineMenu
             size={"24px"}
             className="cursor-pointer"
             onClick={handleMenu}
           />
+        ) : (
+          <>
+            <li className="btn-hover cursor-pointer">Feature</li>
+            <li className="btn-hover cursor-pointer">Menu</li>
+            <li className="btn-hover cursor-pointer">Our Story</li>
+            <li className="btn-hover cursor-pointer ml-28">Contact</li>
+          </>
         )}
 
         {/* Menu */}

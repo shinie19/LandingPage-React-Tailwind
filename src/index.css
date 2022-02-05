@@ -6,4 +6,8 @@
   .check-content {
     @apply mb-[51px] flex gap-8 ml-[70px] mr-[29px] items-center;
   }
+
+  .btn-hover {
+    @apply hover:text-purple-500 transition-all duration-200;
+  }
 }
